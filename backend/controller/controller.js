@@ -123,7 +123,36 @@ const setService = async (req,res)=>{
     }
 } 
 
+const getAll = async (req,res)=>{
+  try{
+    const data = await auto.find({})
+    res.status(200).json(data)
+  }
+  catch(err){
+    res.status(500).json({error:err.message})
+  }
+}
+
+const statusUpdate = async (req,res)=>{
+  const {email,status,sname} = req.body
+  try{
+    const data  = await auto.findOneAndUpdate({email:email,"services.sname":sname},{
+      $set :{
+      
+        "services.$.status":status
+      }},{      
+        new : true
+      })
+
+    res.status(200).json(data)
+
+  }
+  catch(err){
+    res.status(500).json({message:err.message})
+  }
+}
 
 
 
-module.exports  = {signup,signin,setService}
+
+module.exports  = {signup,signin,setService,statusUpdate,getAll}
