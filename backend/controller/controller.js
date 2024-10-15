@@ -144,7 +144,7 @@ const statusUpdate = async (req,res)=>{
       })
       let mailOptions = {
         from: "heathledger323@gmail.com",
-        to: "srsarankumaar262003@gmail.com",
+        to: email,
         subject: "Test Email",
         html: `<!DOCTYPE html>
       <html>
