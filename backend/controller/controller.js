@@ -37,20 +37,20 @@ const signin = async (req,res)=>{
     const {email,pass} = req.body
     try{
         const data = await auto.findOne({email})
-        console.log(data)
+        // console.log(data)
         if(!data){
-            res.status(400).json({message:"invalid email"})
+            return res.status(400).json({message:"invalid email"})
         }
         if(data.password === pass){
-            res.status(200).json(data)
+            return res.status(200).json(data)
             
         }
         else{
-            res.status(200).json(data)
+            return res.status(400).json({message:"invalid password"})
         }
     }
     catch(err){
-        res.status(500).json({error:err.message})
+        return res.status(500).json({error:err.message})
     }
 }
 
@@ -67,7 +67,7 @@ const setService = async (req,res)=>{
         })
         let mailOptions = {
             from: "heathledger323@gmail.com",
-            to: "vasanthakumarotp@gmail.com",
+            to: email,
             subject: "Test Email",
             html: `<!DOCTYPE html>
           <html>
