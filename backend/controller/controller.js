@@ -103,10 +103,9 @@ const setService = async (req,res)=>{
           </head>
           <body>
             <div class="container">
-              <div class="header">Welcome, ${data.name}!</div>
+              <div class="header">Hi John!</div>
               <div class="content">
-                <p>Thank you for booking our service! Your booking for <strong>${servicename}</strong> on <strong>${new Date(Date.now()).toLocaleString()} is confirmed.</p>
-                <p>We look forward to serving you soon!</p>
+                <p>Mr/Ms ${data.name} booked for <strong>${servicename}</strong> on <strong>${new Date(Date.now()).toLocaleString()}.</p>
               </div>
             </div>
           </body>
@@ -143,6 +142,56 @@ const statusUpdate = async (req,res)=>{
       }},{      
         new : true
       })
+      let mailOptions = {
+        from: "heathledger323@gmail.com",
+        to: "srsarankumaar262003@gmail.com",
+        subject: "Test Email",
+        html: `<!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+          }
+          .container {
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          .header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          .content {
+            color: #555;
+            line-height: 1.6;
+          }
+      
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">Welcome, ${data.name}!</div>
+          <div class="content">
+            <p>Thank you for booking our service! Your booking for <strong>${sname}</strong> ${status === "completed"?"is "+status+"." :"is in "+status+"." }</p>
+            <p>We look forward to serving you soon!</p>
+          </div>
+        </div>
+      </body>
+      </html>
+      `,
+      };
+      
+    transporter.sendMail(mailOptions);
 
     res.status(200).json(data)
 
