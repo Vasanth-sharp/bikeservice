@@ -77,9 +77,11 @@ function Ownerdesk() {
                       handleChange(e, customer.email, service.sname)
                     }
                   >
-                    <option value="imcomplete">--Incomplete--</option>
-                    <option value="progress">Progress</option>
-                    <option value="completed">Completed</option>
+                    <option value="">--select--</option>
+                    <option value="booking accepted">Booking Accepted</option>
+                    <option value="vehicle received">Vehicle recived</option>
+                    <option value="service completed">Service Completed</option>
+                    <option value="vehicle delivered">Vehicle Delivered</option>
                   </select>
                 </div>
               ))}
