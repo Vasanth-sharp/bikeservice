@@ -66,8 +66,8 @@ const setService = async (req,res)=>{
             }
         })
         let mailOptions = {
-            from: "heathledger323@gmail.com",
-            to: "vasanthakumarotp@gmail.com",
+            from: '"Logu" <heathledger323@gmail.com>',
+            to: "loga.nanthan.d@gmail.com",
             subject: "Test Email",
             html: `<!DOCTYPE html>
           <html>
