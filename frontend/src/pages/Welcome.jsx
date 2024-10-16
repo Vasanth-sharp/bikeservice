@@ -8,6 +8,7 @@ function Welcome() {
   <div style={{ backgroundColor: '#000', color: '#fff', padding: '50px 20px', textAlign: 'center' }}>
     <h1 style={{ fontSize: '48px', fontWeight: 'bold' }}>Welcome to BikeService</h1>
     <p style={{ fontSize: '18px', marginTop: '20px' }}>Your trusted partner for professional bike maintenance and repairs.</p>
+    <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
     <Link to="/signup" style={{
       marginTop: '20px',
       padding: '15px 30px',
@@ -19,8 +20,35 @@ function Welcome() {
       cursor: 'pointer',
       fontSize: '16px'
     }}>
-      Book a Service
+      Signup
     </Link>
+    <Link to="/login" style={{
+      marginTop: '20px',
+      padding: '15px 30px',
+      backgroundColor: '#28a745',
+      border: 'none',
+      borderRadius: '5px',
+      color: '#fff',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      fontSize: '16px'
+    }}>
+      Login
+    </Link>
+    <Link to="/owner" style={{
+      marginTop: '20px',
+      padding: '15px 30px',
+      backgroundColor: '#28a745',
+      border: 'none',
+      borderRadius: '5px',
+      color: '#fff',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      fontSize: '16px'
+    }}>
+      Mechanic desk
+    </Link>
+    </div>
   </div>
 
   {/* Services Section */}
