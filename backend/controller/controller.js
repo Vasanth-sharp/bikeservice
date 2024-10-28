@@ -143,7 +143,7 @@ const statusUpdate = async (req,res)=>{
         new : true
       })
       let mailOptions = {
-        from: "heathledger323@gmail.com",
+        from: '"Logu" <heathledger323@gmail.com>',
         to: email,
         subject: "Test Email",
         html: `<!DOCTYPE html>
